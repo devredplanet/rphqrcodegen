@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting to App Store...</title>
+    <script>
+        window.onload = function() {
+            // Replace these with your actual App Store and Play Store links
+            var iosUrl = "https://apps.apple.com/ph/app/red-members-red-planet-hotel/id6756481585";
+            var androidUrl = "https://play.google.com/store/search?q=Red%20Planet%20Hotels&c=apps&hl=en";
+            var fallbackUrl = "https://www.redplanethotels.com"; // If scanned by a desktop/PC
+
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = iosUrl;
+            } else if (/android/i.test(userAgent)) {
+                window.location.href = androidUrl;
+            } else {
+                window.location.href = fallbackUrl;
+            }
+        };
+    </script>
+</head>
+<body>
+    <p style="font-family: sans-serif; text-align: center; margin-top: 50px;">
+        Detecting device... Redirecting you to the appropriate App Store.
+    </p>
+</body>
+</html>
